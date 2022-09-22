@@ -13,7 +13,10 @@
   
   <script>
     var search = location.search.substring(1);
-    console.log(JSON.parse('{"' + decodeURI(search).replace(/"/g, '\\"').replace(/&/g, '","').replace(/=/g,'":"') + '"}')); // print param
+    var param_JSON = JSON.parse('{"' + decodeURI(search).replace(/"/g, '\\"').replace(/&/g, '","').replace(/=/g,'":"') + '"}');
+    console.log(param_JSON); // print param
+    console.log(param_JSON['id']); // print param
+    window.location.replace("http://stackoverflow.com");
   </script>
 
 </body>
