@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>redirect</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="" />
+</head>
+
+<body>
+
+  <h1>Parsing your URL parameters</h1>
+  
+  <script>
+    const params = new URLSearchParams(window.location.id); //parse params
+    const id = params.get("id"); //get id param
+    console.log(id); // print param
+  </script>
+
+</body>
+
+</html>
