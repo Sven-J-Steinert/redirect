@@ -359,7 +359,7 @@
   <div class="container">
     <div id="ripple" class="lds-ripple"><div></div><div></div></div>
     
-    <div id="unsuccessful" style="visibility:hidden;">
+    <div id="unsuccessful" style="display: none;">
   
     <div class="container-table100">
     <div class="wrap-table100">
@@ -554,8 +554,8 @@
     function print_table() {
       
 
-      document.getElementById("unsuccessful").style.visibility = "visible";
-      document.getElementById("ripple").style.visibility = "hidden";
+      document.getElementById("unsuccessful").style.display = "block;";
+      document.getElementById("ripple").style.display = "none;";
     }
   </script>
   
