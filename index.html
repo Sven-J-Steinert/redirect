@@ -72,8 +72,8 @@
     /*//////////////////////////////////////////////////////////////////
     [ FONT ]*/
     @font-face {
-    font-family: Lato-Regular;
-    src: url('../fonts/Lato/Lato-Regular.ttf');
+    font-family: ArialNova-Regular;
+    src: url('../fonts/ArialNova.ttf');
     }
     @font-face {
     font-family: Lato-Bold;
@@ -269,7 +269,7 @@
     background-color: transparent;
     }
     .table100.ver5 td {
-    font-family: Lato-Regular;
+    font-family: ArialNova-Regular;
     font-size: 15px;
     color: #808080;
     line-height: 1.4;
@@ -331,6 +331,8 @@
 <body>
   <div class="container">
     <div id="ripple" class="lds-ripple"><div></div><div></div></div>
+    
+    <div id="unsuccessful" style="visibility:hidden;">
   
     <div class="container-table100">
     <div class="wrap-table100">
@@ -514,7 +516,7 @@
     </div>
       
       
-      
+    </div>
     </div>
     
   </div>
@@ -523,7 +525,7 @@
   
   <script>
     function print_table() {
-      var tbodyRef = document.getElementById('table').getElementsByTagName('tbody')[0];
+      var tbodyRef = document.getElementById('table').getElementsByTagName('tbody');
       // Insert a row at the end of table
       var newRow = tbodyRef.insertRow();
       // Insert a cell at the end of the row
