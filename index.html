@@ -22,12 +22,10 @@
       var search = location.search.substring(1);
       try {
         var param_JSON = JSON.parse('{"' + decodeURI(search).replace(/"/g, '\\"').replace(/&/g, '","').replace(/=/g,'":"') + '"}');
+        var id = param_JSON['id'];
       } catch (error) {
         console.error(error);
       }
-
-      console.log(param_JSON); // print param
-      var id = param_JSON['id'];
 
       if(typeof database[id] !== "undefined")
       {
