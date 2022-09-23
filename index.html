@@ -425,15 +425,25 @@
       for (let i in table_database) {
 
         var table = document.getElementById("papertable");
-        var row = table.insertRow(0);
-        row.onclick = 'window.location.replace(' + '"' + table_database[i]["link"] + '"' + ';)';
-        var cell1 = row.insertCell(0);
-        var cell2 = row.insertCell(1);
-        var cell3 = row.insertCell(2);
+        var currentRow = table.insertRow(0);
+        
+        var createClickHandler = function(row) {
+            return function() {
+              var cell = row.getElementsByTagName("td")[0];
+              var id = cell.innerHTML;
+              alert("id:" + id);
+            };
+          };
+        currentRow.onclick = createClickHandler(currentRow);
+        
+        var cell1 = currentRow.insertCell(0);
+        var cell2 = currentRow.insertCell(1);
+        var cell3 = currentRow.insertCell(2);
         cell1.innerHTML = table_database[i]["name"];
         cell2.innerHTML = table_database[i]["year"];
         cell3.innerHTML = table_database[i]["doi"];
       }
+      
 
 
       document.getElementById("unsuccessful").style.display = "block";
