@@ -7,45 +7,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <meta name="description" content="" />
   
-  <script>
-    function print_table() {
-      var tbodyRef = document.getElementById('table').getElementsByTagName('tbody')[0];
-      // Insert a row at the end of table
-      var newRow = tbodyRef.insertRow();
-      // Insert a cell at the end of the row
-      var newCell = newRow.insertCell();
-      // Append a text node to the cell
-      var newText = document.createTextNode('new row');
-      newCell.appendChild(newText);
 
-      document.getElementById("unsuccessful").style.visibility = "visible";
-      document.getElementById("ripple").style.visibility = "hidden";
-    }
-  </script>
-  
-  <script>
-    const database_text = '{ ' +
-      '"DLR_Paper_2022": "https://github.com/Sven-J-Steinert/DLR_Paper_2022",'  +
-      '"placeholder1": "https://github.com/Sven-J-Steinert?tab=repositories",'  +
-      '"placeholder2": "https://github.com/Sven-J-Steinert/redirect"'           +
-      '}';
-
-    const database = JSON.parse(database_text);
-    console.log(database);
-    console.log(database["DLR_Paper_2022"]);
-    
-    var search = location.search.substring(1);
-    var param_JSON = JSON.parse('{"' + decodeURI(search).replace(/"/g, '\\"').replace(/&/g, '","').replace(/=/g,'":"') + '"}');
-    console.log(param_JSON); // print param
-    var id = param_JSON['id'];
-
-    if(typeof database[id] !== "undefined")
-    {
-      window.location.replace(database[id]);
-    } else {print_table();}
-    
-  </script>
-  
   <style>
     body {background-color: lightgrey;}
     
@@ -319,6 +281,44 @@
 
 </body>
   
+  <script>
+    function print_table() {
+      var tbodyRef = document.getElementById('table').getElementsByTagName('tbody')[0];
+      // Insert a row at the end of table
+      var newRow = tbodyRef.insertRow();
+      // Insert a cell at the end of the row
+      var newCell = newRow.insertCell();
+      // Append a text node to the cell
+      var newText = document.createTextNode('new row');
+      newCell.appendChild(newText);
 
+      document.getElementById("unsuccessful").style.visibility = "visible";
+      document.getElementById("ripple").style.visibility = "hidden";
+    }
+  </script>
+  
+  <script>
+    const database_text = '{ ' +
+      '"DLR_Paper_2022": "https://github.com/Sven-J-Steinert/DLR_Paper_2022",'  +
+      '"placeholder1": "https://github.com/Sven-J-Steinert?tab=repositories",'  +
+      '"placeholder2": "https://github.com/Sven-J-Steinert/redirect"'           +
+      '}';
+
+    const database = JSON.parse(database_text);
+    console.log(database);
+    console.log(database["DLR_Paper_2022"]);
+    
+    var search = location.search.substring(1);
+    var param_JSON = JSON.parse('{"' + decodeURI(search).replace(/"/g, '\\"').replace(/&/g, '","').replace(/=/g,'":"') + '"}');
+    console.log(param_JSON); // print param
+    var id = param_JSON['id'];
+
+    if(typeof database[id] !== "undefined")
+    {
+      window.location.replace(database[id]);
+    } else {print_table();}
+    
+  </script>
+  
 
 </html>
