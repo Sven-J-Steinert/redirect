@@ -89,7 +89,6 @@
       }
     }
     table {
-      visibility: hidden;
       background-color: blue;
       margin-left: auto;
       margin-right: auto;
@@ -103,12 +102,21 @@
   <div class="container">
     <div class="lds-ripple"><div></div><div></div></div>
     
-    <table id="table" >
-      <tr>
-        <td>Paper Name</td>
-        <td>Git-Repository</td>
-      </tr>
+    <div id="unsuccessful" style="visibility: hidden;">
+    <table id="table">
+      <thead>
+        <tr>
+          <th>Paper Name</th>
+          <th>Git-Repository</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>initial row</td>
+        </tr>
+      </tbody>
     </table>
+    </div>
     
   </div>
 
@@ -116,16 +124,19 @@
   
 <script>
   function print_table() {
-    var table = document.getElementById("table");
-    var row = table.insertRow(0);
-    var cell1 = row.insertCell(0);
-    var cell2 = row.insertCell(1);
-    cell1.innerHTML = "NEW CELL1";
-    cell2.innerHTML = "NEW CELL2";
-    document.getElementById("table").style.visibility = "visible";
+    var tbodyRef = document.getElementById('table').getElementsByTagName('tbody')[0];
+    // Insert a row at the end of table
+    var newRow = tbodyRef.insertRow();
+    // Insert a cell at the end of the row
+    var newCell = newRow.insertCell();
+    // Append a text node to the cell
+    var newText = document.createTextNode('new row');
+    newCell.appendChild(newText);
+    
+    document.getElementById("unsuccessful").style.visibility = "visible";
   }
   
-  setTimeout("print_table()", 5000); // after 5 secs
+  setTimeout("print_table()", 3000); // after 5 secs
 
 </script>
 
