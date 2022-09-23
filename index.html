@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <title>redirect</title>
-  <link rel="icon" type="image/x-icon" href="/img/favicon.png">
+  <link rel="icon" type="image/x-icon" href="redirect/img/favicon.png">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <meta name="description" content="" />
@@ -93,8 +93,31 @@
 <body>
   <div class="container">
     <div class="lds-ripple"><div></div><div></div></div>
+    
+    <table id="table" style="visibility: hidden">
+      <tr>
+        <td>Paper Name</td>
+        <td>Git-Repository</td>
+      </tr>
+    </table>
+    
   </div>
 
 </body>
+  
+<script>
+  function print_table() {
+    var table = document.getElementById("table");
+    var row = table.insertRow(0);
+    var cell1 = row.insertCell(0);
+    var cell2 = row.insertCell(1);
+    cell1.innerHTML = "NEW CELL1";
+    cell2.innerHTML = "NEW CELL2";
+    document.getElementById("table").style.visibility = "visible";
+  }
+  
+  setTimeout("print_table()", 5000); // after 5 secs
+
+</script>
 
 </html>
