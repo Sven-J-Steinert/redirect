@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <title>redirect</title>
-  <link rel="icon" type="image/x-icon" href="redirect/img/favicon.png">
+  <link rel="icon" type="image/x-icon" href="img/favicon.png">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <meta name="description" content="" />
@@ -23,7 +23,7 @@
     console.log(param_JSON); // print param
     var id = param_JSON['id'];
 
-    if(typeof id !== "undefined")
+    if(typeof database[id] !== "undefined")
     {
       window.location.replace(database[id]);
     }
@@ -33,6 +33,7 @@
   <style>
     body {background-color: lightgrey;}
     .container {
+      background-color: grey;
       position: absolute;
       top: 50%;
       left: 50%;
@@ -87,6 +88,14 @@
         opacity: 0;
       }
     }
+    table {
+      visibility: hidden;
+      background-color: blue;
+      margin-left: auto;
+      margin-right: auto;
+      border: 1px solid black;
+      border-collapse: collapse;
+    }
   </style>
 </head>
 
@@ -94,7 +103,7 @@
   <div class="container">
     <div class="lds-ripple"><div></div><div></div></div>
     
-    <table id="table" style="visibility: hidden">
+    <table id="table" >
       <tr>
         <td>Paper Name</td>
         <td>Git-Repository</td>
