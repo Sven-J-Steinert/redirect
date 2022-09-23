@@ -8,6 +8,22 @@
   <meta name="description" content="" />
   
   <script>
+    function print_table() {
+      var tbodyRef = document.getElementById('table').getElementsByTagName('tbody')[0];
+      // Insert a row at the end of table
+      var newRow = tbodyRef.insertRow();
+      // Insert a cell at the end of the row
+      var newCell = newRow.insertCell();
+      // Append a text node to the cell
+      var newText = document.createTextNode('new row');
+      newCell.appendChild(newText);
+
+      document.getElementById("unsuccessful").style.visibility = "visible";
+      document.getElementById("ripple").style.visibility = "hidden";
+    }
+  </script>
+  
+  <script>
     const database_text = '{ ' +
       '"DLR_Paper_2022": "https://github.com/Sven-J-Steinert/DLR_Paper_2022",'  +
       '"placeholder1": "https://github.com/Sven-J-Steinert?tab=repositories",'  +
@@ -117,8 +133,6 @@
         </tr>
       </tbody>
     </table>
-      
-      
       
       
     <div class="table100 ver5 m-b-110">
@@ -305,21 +319,6 @@
 
 </body>
   
-<script>
-  function print_table() {
-    var tbodyRef = document.getElementById('table').getElementsByTagName('tbody')[0];
-    // Insert a row at the end of table
-    var newRow = tbodyRef.insertRow();
-    // Insert a cell at the end of the row
-    var newCell = newRow.insertCell();
-    // Append a text node to the cell
-    var newText = document.createTextNode('new row');
-    newCell.appendChild(newText);
-    
-    document.getElementById("unsuccessful").style.visibility = "visible";
-    document.getElementById("ripple").style.visibility = "hidden";
-  }
-  
-</script>
+
 
 </html>
