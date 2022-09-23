@@ -7,6 +7,33 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <meta name="description" content="" />
   
+  <script>
+    function redirect() {
+      const database_text = '{ ' +
+        '"DLR_Paper_2022": "https://github.com/Sven-J-Steinert/DLR_Paper_2022",'  +
+        '"placeholder1": "https://github.com/Sven-J-Steinert?tab=repositories",'  +
+        '"placeholder2": "https://github.com/Sven-J-Steinert/redirect"'           +
+        '}';
+
+      const database = JSON.parse(database_text);
+      console.log(database);
+      console.log(database["DLR_Paper_2022"]);
+
+      var search = location.search.substring(1);
+      var param_JSON = JSON.parse('{"' + decodeURI(search).replace(/"/g, '\\"').replace(/&/g, '","').replace(/=/g,'":"') + '"}');
+      console.log(param_JSON); // print param
+      var id = param_JSON['id'];
+
+      if(typeof database[id] !== "undefined")
+      {
+        window.location.replace(database[id]);
+      } else {return False}
+      
+    }
+    
+    redirect();
+  </script>
+  
 
   <style>
     body {background-color: lightgrey;}
@@ -533,26 +560,13 @@
   </script>
   
   <script>
-    const database_text = '{ ' +
-      '"DLR_Paper_2022": "https://github.com/Sven-J-Steinert/DLR_Paper_2022",'  +
-      '"placeholder1": "https://github.com/Sven-J-Steinert?tab=repositories",'  +
-      '"placeholder2": "https://github.com/Sven-J-Steinert/redirect"'           +
-      '}';
-
-    const database = JSON.parse(database_text);
-    console.log(database);
-    console.log(database["DLR_Paper_2022"]);
+    function check() {
+      if (!redirect()) {
+        print_table();
+      }
+    }
     
-    var search = location.search.substring(1);
-    var param_JSON = JSON.parse('{"' + decodeURI(search).replace(/"/g, '\\"').replace(/&/g, '","').replace(/=/g,'":"') + '"}');
-    console.log(param_JSON); // print param
-    var id = param_JSON['id'];
-
-    if(typeof database[id] !== "undefined")
-    {
-      window.location.replace(database[id]);
-    } else {print_table();}
-    
+    setTimeout("check()", 3000); // after 3 secs
   </script>
   
 
